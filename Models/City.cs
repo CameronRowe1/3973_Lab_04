@@ -11,6 +11,7 @@ namespace Lab_04.Models
     [Key]
     public int CityId { get; set; }
 
+		[Required]
     [Display (Name ="City Name")]
     public string CityName { get; set; }
     public int Population {get; set;}

@@ -11,6 +11,7 @@ namespace Lab_04.Models
     [Key]
     public string ProvinceCode { get; set; }
 
+	[Required]
     [Display (Name ="Province Name")]
     public string ProvinceName { get; set; }
 
