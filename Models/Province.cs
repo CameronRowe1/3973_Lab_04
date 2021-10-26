@@ -12,7 +12,7 @@ namespace Lab_04.Models
    	[Required]
     [MaxLength(2), MinLength(2)]
     [RegularExpression("^([A-Z]{2})$", ErrorMessage = "Province Code Must be 2 capital characters")]
-    [Display (Name = "2-Letter Abbreviation")]
+    [Display (Name = "Province Code")]
     public string ProvinceCode { get; set; }
 
 	[Required]
