@@ -12,8 +12,11 @@ namespace Lab_04.Models
     public int CityId { get; set; }
 
 		[Required]
+    [MaxLength(100), MinLength(1)]
     [Display (Name ="City Name")]
     public string CityName { get; set; }
+
+     [Range(1, 99999999)]
     public int Population {get; set;}
 
     [Display (Name ="Province Code")]
