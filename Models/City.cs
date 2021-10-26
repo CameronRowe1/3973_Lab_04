@@ -13,6 +13,7 @@ namespace Lab_04.Models
 
 		[Required]
     [MaxLength(100), MinLength(1)]
+    [RegularExpression("^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$", ErrorMessage = "City Name must only be alphabetic characters")]
     [Display (Name ="City Name")]
     public string CityName { get; set; }
 
