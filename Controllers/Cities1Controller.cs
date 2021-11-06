@@ -28,7 +28,9 @@ namespace lab_04.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
-            return await _context.Cities.ToListAsync();
+           // return await _context.Cities.ToListAsync();
+            var applicationDbContext = _context.Cities.Include(c => c.Province);
+            return await applicationDbContext.ToListAsync();
         }
 
         // GET: api/Cities1/5
