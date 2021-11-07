@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Lab_04.Data;
 using Lab_04.Models;
 using Microsoft.AspNetCore.Cors;
+using lab_04.Models;
 
 namespace lab_04.Controllers
 {
@@ -26,9 +27,17 @@ namespace lab_04.Controllers
 
         // GET: api/Cities1
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<City>>> GetCities()
+        public async Task<ActionResult<IEnumerable<City1>>> GetCities()
         {
-           return await _context.Cities.ToListAsync();
+          // return await _context.Cities.ToListAsync();
+
+            var applicationDbContext = _context.Cities.Include(c => c.Province);
+            var raw = await applicationDbContext.ToListAsync();
+            var result = new List<City1>();
+            foreach(var city in raw) {
+                result.Add(new City1(city.CityId, city.CityName, city.Population, city.ProvinceCode, city.Province.ProvinceName));
+            }
+            return result;
         }
 
         // GET: api/Cities1/5
